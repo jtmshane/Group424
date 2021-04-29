@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BadgerSupport.com</title>
+    <script src="https://kit.fontawesome.com/5801cc7b40.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
+    <!--  dog icon <i class="fas fa-dog is-"></i> -->
+
+</head>
+
+<nav class="navbar is-danger" role="navigation" aria-label="main navigation">
+
+    <div class="navbar-brand">
+
+        <!-- Name and logo-->
+        <a href="" class="navbar-item">
+            <section class="hero">
+                <div class="hero-body">
+                    <p class="title has-text-white">
+                        <i class="fas fa-dog has-text-white"></i>
+                        Badger Support
+                    </p>
+                    <p class="subtitle is-6 has-text-white">
+                        Emotional Support when you need it!
+                    </p>
+                </div>
+            </section>
+        </a>
+
+        <div class="content" id="owner"></div>
+
+        <div class="navbar-menu">
+            <div class="navbar-start">
+
+                <a href="" class="navbar-item">Wisc.edu</a>
+                <a href="" class="navbar-item logged" id="apTest">Animal Directory</a>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Signup Sign in -->
+    <div class="navbar-end">
+        <div class="navbar-item">
+            <div class="buttons">
+                <a class="button is-dark notLogged" id="signupbutton">
+                    <strong>Sign Up</strong>
+                </a>
+                <a class="button is-light notLogged" id="logInButton">
+                    <strong>Log In</strong>
+                </a>
+
+                <a class="button is-dark logged" id="petButton">
+                    <strong>Become a Pet Partner</strong>
+                </a>
+
+
+                <a class="button is-light logged" id="signOutButton">
+                    <strong>Sign Out</strong>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+</nav>
+
+
+<body>
+
+    <!-- signup Form -->
+    <div class="modal" id="signUpModal">
+        <div class="modal-background" id="signUpFormBackground"></div>
+        <div class="modal-content p-6 has-background-info">
+            <form id="signUpForm">
+
+                <div class="field">
+                    <label class="label has-text-white">Email</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="email" placeholder="Email" id="signUpEmail">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label has-text-white">Password</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="password" placeholder="Password" id="signUpPassword">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-key"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <form id="accountCreation">
+                    <div class="field">
+                        <label class="label has-text-white mr-2">First Name</label>
+                        <div class="control">
+                            <input type="text" class="input" id="fName">
+                        </div>
+
+                        <label class="label has-text-white ml-3 mr-2">Last Name</label>
+                        <div class="control">
+                            <input type="text" class="input" id="lName">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label class="label has-text-white mr-2">Phone Number</label>
+                        <div class="control">
+                            <input type="number" class="input" id="phoneNumber">
+                        </div>
+
+                    </div>
+
+                    <div class="field">
+                        <label class="label has-text-white">Status</label>
+                        <div class="control">
+                            <div class="select">
+                                <select id="userType">
+                                    <option value="Student">Student</option>
+                                    <option value="Volunteer">Volunteer</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="error has-text-danger" id="signUpError"></div>
+
+                    <div class="field is-grouped">
+                        <div class="control">
+                            <button class="button is-danger">Submit</button>
+                        </div>
+                        <div class="control">
+
+                        </div>
+                        <div class="control">
+                            <button class="button is-link is-light" id="signUpReset">Reset</button>
+                        </div>
+                    </div>
+                </form>
+        </div>
+    </div>
+
+    <!-- Login Form -->
+    <div class="modal" id="logInForm">
+        <div class="modal-background " id="logInBackground"></div>
+        <div class="modal-content p-6 has-background-white">
+            <form id="logInData">
+
+                <div class="field">
+                    <label class="label" id="email">Email</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="email" placeholder="Email" id="logInEmail">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label" id="password">Password</label>
+                    <div class="control has-icons-left has-icons-right">
+                        <input class="input" type="password" placeholder="Password" id="logInPassword">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-key"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="error has-text-danger" id="signup_error"></div>
+
+                <div class="field is-grouped">
+                    <div class="control">
+                        <button class="button is-link">Submit</button>
+                    </div>
+                    <div class="control">
+
+                    </div>
+                    <div class="control">
+                        <button class="button is-link is-light" id="logInReset">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Pet Partners form -->
+    <div class="modal" id="petPartnerModal">
+        <div class="modal-background"></div>
+        <div class="modal-content p-6 has-background-danger">
+            <h1 class="is-size-3 title has-text-white"><strong>Pet Partner Signup</strong></h1>
+            <form id="petPartnerForm">
+
+                <div class="field">
+                    <label class="label has-text-white">Animal Name</label>
+                    <div class="control">
+                        <input type="text" class="input" id="animalName">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label has-text-white">Type Of animal</label>
+                    <div class="control">
+                        <div class="select">
+                            <select id="animalType">
+                                <option value="Dog">Dog</option>
+                                <option value="Cat">Cat</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label has-text-white">Demeanor</label>
+                    <div class="control">
+                        <input type="text" class="input" id="animalDemeanor">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <p class="has-text-white">Please tell us something about your animal</p>
+                    <textarea class="textarea" placeholder="tell us about your support animal"
+                        id="animalInfo"></textarea>
+                </div>
+
+                <div class="file has-name is-boxed">
+                    <label class="file-label">
+                        <input class="file-input" type="file" id="animalPictures">
+                        <span class="file-cta">
+                            <span class="file-icon">
+                                <i class="fas fa-upload"></i>
+                            </span>
+                            <span class="file-label">
+                                Choose a Profile Photo
+                            </span>
+                        </span>
+
+                    </label>
+                </div>
+
+                <div class="field is-grouped mt-4">
+                    <div class="control">
+                        <button class="button">Submit</button>
+                    </div>
+                    <div class="control">
+                        <button class="button" id="PetPartnerCancel">Finished</button>
+
+                    </div>
+
+                    <div class="control">
+                        <button class="button is-link is-light" id="petPartnerReset">Reset</button>
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+
+    <p><img src="${i.data().url}"> </p>
+    </div> <!-- Misson Statement -->
+
+    <!-- Contact Us  -->
+    <div class="modal" id="contactusModal">
+        <div class="modal-background" id="contactUsBackground"></div>
+        <div class="modal-content p-6 has-background-danger-light">
+            <h1 class="is-size-2 title has-text-centered">Contact Us</h1>
+            <div class="box has-text-centered">
+                <p><b>Phone:</b> (608) 123-4567</p>
+                <p><b>Address:</b> Bascom Hall 500 Lincoln Dr, Madison, WI 53706</p>
+                <p><b>Email:</b> badgersupport@wisc.edu</p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="wrapper has-background-link-light">
+        <div class="columns">
+            <!-- About -->
+            <div class="column is-2 m-6">
+                <div class="box">
+                    <h1 class="title"> About Us</h1>
+                    <div class="content">Badger Support aims to connect every available dog with every student in need
+                        in order to allow students to get the stress relief they deserve whether it be
+                        during finals or on a random Tuesday night at some point in the semester. We want
+                        all students to feel supported! The dogs get to meet new humans too, so it's a win-win!</div>
+                    <div class="container" id="highLightReel"> </div>
+                    <div class="box has-text-centered"><button class="button is-rounded" id="contactUsButton"><a
+                                href="">
+                                Contact Us!
+                            </a></button>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- center column -->
+            <div class="column mt-4 my-6" id="testing">
+                <div class="container">
+                    <form id="foundingMember"></form>
+                </div>
+                <div class="container" id="">
+                    <h1 class="title has-text-centered"> Meet Our Founding Member</h1>
+                    <h1 class="title has-text-centered is-5 has-text-weight-bold"> Beau!</h1>
+
+
+                    <figure class="image">
+
+                        <img class="is-rounded" id="beau" src="BeauWithGlasses.JPG">
+
+                    </figure>
+
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="column mt-6 is-3 notLogged">
+                <div class="box">
+                    <div class="content">
+                        <h1 class="title">Come Join The Family!</h1>
+                        <p>Want to study with some awsome animals? Who wouldnt!! log in to search for you favorite
+                            animal.
+                        </p>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class="column mt-6 is-3 logged">
+                <div class="box">
+                    <h1 class="title">Search Your Favorite Animal!</h1>
+                    <p>We partner with local pet families to provide you with your favorite study animals</p>
+                    <!-- Animal  -->
+                    <p class="mt-3">Animal Profile </p>
+                    <div class="columns">
+                        <div class="column">
+                            <input class="input is-medium" type="text" id="animalSearch">
+                            <div class="button mt-2 is-info" id="animalSearchButton">Search</div>
+                        </div>
+                        <div class="column"></div>
+                    </div>
+
+                </div>
+
+                <div class="container" id="middleContent"></div>
+                <div class="container" id="welcomeUser"></div>
+
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="content has-text-centered">
+            <p>
+                <i class="fas fa-dog"></i>
+                <strong>BadgerSupport</strong> by <a href="">Created By Group 3</a>
+                <p>Disclaimer: Emotional support animals help individuals with emotional disabilities such as anxiety or
+                    depression by providing comfort and support.
+                    <br> Any animal can be an emotional support animal. Federal law does not require these animals to
+                    have any specific training and you do not have to be physically disabled to have an emotional
+                    support animal. </p>
+
+            </p>
+        </div>
+    </footer>
+
+    <!-- Dont Touch these -->
+    <script src="https://www.gstatic.com/firebasejs/8.4.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-messaging.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-storage.js"></script>
+
+    <script>
+        // Your web app's Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDBBbbwjnYCGc09gxnqMg4Gj3mAQmEtRi8",
+            authDomain: "is-424.firebaseapp.com",
+            databaseURL: "https://is-424-default-rtdb.firebaseio.com",
+            projectId: "is-424",
+            storageBucket: "is-424.appspot.com",
+            messagingSenderId: "718011983757",
+            appId: "1:718011983757:web:8c80a049c414deb04a3fc4"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        let auth = firebase.auth();
+        let db = firebase.firestore();
+        let ref = firebase.storage().ref();
+    </script>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
+
+<p class="has-text-right">Submitted By: ${i.data().email}</p>
