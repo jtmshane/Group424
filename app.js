@@ -189,8 +189,8 @@ auth.onAuthStateChanged((user) => {
 
                     <h1 class="title is-size3 has-background-success-light p-2"> Meet ${i.data().name} </h1>
                     <div class="columns">
-                        <div class="column is-2">
-                        <p class="is-rounded"><img src="${i.data().url}" </p> </div> 
+                        <div class="column is-4">
+                        <p><img src="${i.data().url}" </p> </div> 
                             <div class="column">
                     <p>A ${i.data().type} with a ${i.data().demeanor} demeanor.</p>
                     <p>'${i.data().info}'</p>
@@ -237,8 +237,8 @@ animalSearchButton.addEventListener('click', (e) => {
 
             <h1 class="title is-size3 has-background-success-light p-2"> Meet ${i.data().name} </h1>
             <div class="columns">
-                <div class="column is-2">
-                    <p class="is-rounded"><img src="${i.data().url}" </p> </div> 
+                <div class="column is-4">
+                    <p><img src="${i.data().url}" </p> </div> 
                     <div class="column">
                         <p>A ${i.data().type} with a ${i.data().demeanor} demeanor.</p>
                         <p>'${i.data().info}'</p>
